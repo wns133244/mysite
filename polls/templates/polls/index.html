@@ -1,0 +1,14 @@
+<ul>
+{% for q in question %}
+    <li>
+        <a href="{% url 'detail22' q.id%}">
+        <!--<a href="{{ q.id }}">, polls.url에 name 추가x, <int:id/detail>로 설정.-->
+            <!--상대경로는 현재 내 경로(polls) + "~~" -->
+            <!--"~~" , 아이디가 높아지면 숫자를 계속입력하기 보다 id로 해야 원할함.-->
+        {{q.question_text}}
+        </a>
+    </li>
+
+{% endfor %}
+</ul>
+<!--클라이언트의 요청을 받아서 db에 있는 내용을 꺼내온 것-->

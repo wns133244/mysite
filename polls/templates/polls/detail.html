@@ -1,0 +1,20 @@
+{{ item.question_text }}<br>
+{{ item.pub_date }}
+
+<form action="qa/" method="post">
+{{ item.choice_set.all }}
+{% for c in item.choice_set.all %}
+    <br>
+    <input type="radio" name="choice" value="{{ c.id }}">
+    <!--name 설정을 안하면 보기들이 개별 보기로 인식되어 name을 설정하여 묶어줌-->
+    {{ c.choice_text }}
+{% endfor %}
+    {% csrf_token%}
+    <!--{% csrf_token%} 서버 보안조치로 접근할 수 없는 페이지에서 접근했는지 확인하는 것-->
+    <input type="submit" value="투표">
+</form>
+
+
+
+
+
